@@ -24,7 +24,7 @@
 			document.addEventListener("deviceready", onDeviceReady, false);
 			$("#iframe").iFrameResize({
 							//log:true,
-							autoResize:false,
+							autoResize:true,
 							enablePublicMethods:true,
 							resizedCallback:function(messageData){},
 							messageCallback:function(messageData){iframe_recive_massage(messageData.message);}
