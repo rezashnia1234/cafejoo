@@ -83,16 +83,8 @@
 
 	<plugin spec="https://github.com/Paldom/UniqueDeviceID.git" source="git" />
 	<plugin spec="https://github.com/apache/cordova-plugin-statusbar.git " source="git" />
-	<gap:config-file platform="ios" parent="UIStatusBarHidden">
-		<true/>
-	</gap:config-file>
 	<preference name="StatusBarOverlaysWebView"			value="false" />
-	<preference name="SplashScreen" value="screen" />
 	<preference name="StatusBarBackgroundColor" value="#141D1A" />
-	<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
-		<false/>
-	</gap:config-file>
-
     <edit-config file="*-Info.plist" mode="overwrite" platform="ios" target="UIStatusBarHidden">
         <true />
     </edit-config>
@@ -191,12 +183,7 @@
         <splash density="land-xxxhdpi" src="res/screen/android/splash-land-xxxhdpi.png"/>
         -->
     </platform>
-	<platform name="windows">
-	</platform>
-	<platform name="wp8">
-	</platform>
-	<platform name="browser">
-	</platform>
+
     <engine name="ios" spec="latest" />
 
 	<allow-navigation href="*" />
