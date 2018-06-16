@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="css/template.css">
 	<script src="js/jquery-2.2.2.min.js"></script>
     <!-- <script src="js/console.log.js"></script> -->
-	<script src="js/iframeResizer.min.js"></script>
     <script src="cordova.js"></script>
     <!-- <script src="js/fastclick.js"></script> -->
     <!-- <script src="js/notification.js"></script> -->
@@ -17,41 +16,13 @@
 		var server_url="https://www.cafe-joo.com/app/";
 		var networkState;
 		var window_height;
-		var iframe_body;
 		function init() {		
 			//alert("init()");
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			document.addEventListener("deviceready", onDeviceReady, false);
-			$("#iframe").iFrameResize({
-							//log:true,
-							autoResize:true,
-							enablePublicMethods:true,
-							resizedCallback:function(messageData){},
-							messageCallback:function(messageData){iframe_recive_massage(messageData.message);}
-						});
-			function iframe_recive_massage(msg) {
-				if(msg=="Loading_Completed"){
-					loadcompeleted();
-				}
-				else if(msg=="Exit_app"){
-					go_back_index();
-				}
-				else if(~msg.indexOf("eval___")){
-					//msg = "eval___alert('ssss');";
-					eval(msg.replace("eval___",""));
-				}
-				else
-					alert(msg);
-			}
+
 			//alert("init()-end");
 			window_height = $(window).height();
-			iframe_body = $("#iframe");
-			iframe_body.css("min-height",window_height + "px");
-		}
-		function loadcompeleted() {		
-			setTimeout(function(){ jQuery('.preloader').css("opacity","0"); }, 300);
-			setTimeout(function(){ jQuery('.preloader').addClass("display_none"); }, 1000);
-			iframe_body.css("min-height",window_height + "px");
 		}
 		function alertDismissed_check_net(){
 			console.log("alertDismissed_check_net : loop :" + window.sessionStorage.getItem("do_loop"));
@@ -130,8 +101,7 @@
 				window.location.href = "https://www.cafe-joo.com/app/";
 			if(reload)
 			{
-				var iframe = document.getElementById("iframe");
-				iframe.src = iframe.src;
+
 			}
 			return true;
 		}
@@ -149,6 +119,7 @@
 		*/
 
 		function onDeviceReady() {
+			StatusBar.overlaysWebView(false);
 			if(navigator.connection.type)
 				networkState = navigator.connection.type;
 			else
