@@ -21,7 +21,7 @@
 	<!-- <preference name='phonegap-version'			value='cli-7.0.1' /> -->
 	<!-- <preference name='phonegap-version'			value='cli-7.1.0' /> -->
     <preference name="phonegap-version"					value="cli-7.0.1" />
-	<preference name="orientation"						value="portrait" />		<!-- all: default means both landscape and portrait are enabled -->
+	<preference name="orientation"						value="portrait" />			<!-- all: default means both landscape and portrait are enabled -->
 	<preference name="target-device"					value="universal" />		<!-- all: possible values handset, tablet, or universal -->
 	<preference name="fullscreen"						value="true" />				<!-- all: hides the status bar at the top of the screen -->
 	<preference name="prerendered-icon"					value="true" />				<!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
@@ -86,12 +86,14 @@
 	<gap:config-file platform="ios" parent="UIStatusBarHidden">
 		<true/>
 	</gap:config-file>
-	<preference name="StatusBarOverlaysWebView" value="false" />
-
+	<preference name="StatusBarOverlaysWebView"			value="false" />
 	<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
 		<false/>
 	</gap:config-file>
-	
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>	
 
 	<!--<gap:plugin name="com.dawsonloudon.videoplayer" 	platform="android"	version="1.0.0" />-->
 	<!--<gap:plugin name="com.hutchind.cordova.plugins.streamingmedia"  source="plugins.cordova.io" />-->
